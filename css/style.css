@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    padding: 0
+}
+
 .bg-primary {
     background-color: #4D2855 !important;
 }
@@ -100,4 +105,55 @@
 }
 .color-primary {
     color: #4D2855 !important;
+}
+
+
+/* regular price and sale price */
+.regular-price {
+    font-size: 2rem;
+    color: #f8d7da;
+    position: relative;
+    margin-right: 15px;
+    display: inline-block;
+    animation: strikeAnim 2s linear infinite;
+}
+
+.regular-price::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -5%;
+    width: 110%;
+    height: 3px;
+    background: red;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: strikeLine 2s linear infinite;
+}
+
+/* Offer Price (highlight) */
+.offer-price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffeb3b;
+    animation: pulseAnim 1.5s ease-in-out infinite;
+}
+
+/* Cross animation */
+@keyframes strikeLine {
+    0% { transform: scaleX(0); }
+    50% { transform: scaleX(1); }
+    100% { transform: scaleX(0); }
+}
+
+/* Flash animation for regular price text */
+@keyframes strikeAnim {
+    0%, 100% { color: #f8d7da; }
+    50% { color: #ff4d4d; }
+}
+
+/* Pulse animation for offer price */
+@keyframes pulseAnim {
+    0%, 100% { transform: scale(1); color: #ffeb3b; }
+    50% { transform: scale(1.2); color: #fff176; }
 }
